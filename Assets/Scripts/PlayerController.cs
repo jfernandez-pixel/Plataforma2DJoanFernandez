@@ -124,15 +124,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void AddHealth()
+    public void AddHealth(int healthAmount)
     {
-        if(_actualHealth <= _maxHealth)
+        _actualHealth += healthAmount;
+
+        if(_actualHealth > _maxHealth)
         {
-            _actualHealth += 10;
-        }
-        else if(_actualHealth == _maxHealth)
-        {
-            _actualHealth += 0;
+            _actualHealth = _maxHealth;
         }
         
     }

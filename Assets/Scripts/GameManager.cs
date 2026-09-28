@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
             AudioManager.Instance.PasueSoundtrack(); // Pausa la musica
             Time.timeScale = 0; // Para el tiempo, lo congela
         }
+
+        CanvasManager.Instance.ChangeCanvasStatus();
     }
 
     public bool IsPaused() // nos devuelve verdadero o falso depende de la booleana anterior

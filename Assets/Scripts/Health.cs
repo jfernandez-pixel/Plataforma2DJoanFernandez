@@ -6,7 +6,9 @@ public class Health : MonoBehaviour
     private AudioSource _healthAduioSource;
     private SpriteRenderer _spriteRenderer;
     private CircleCollider2D _collider;
+    [SerializeField]private int _healthAmount = 10;
     [SerializeField]private AudioClip _healthAudio;
+    
     
     void Awake()
     {
@@ -24,8 +26,8 @@ public class Health : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            PlayerController HealthScirpt = collision.GetComponent<PlayerController>();
-            HealthScirpt.TakeDamage(_attackDamage);
+            PlayerController HealthScirpt = collision.GetComponent<PlayerController>(); //_playerScript
+            HealthScirpt.AddHealth(_healthAmount);
             PlaySFX();
             _spriteRenderer.enabled = false;
             _collider.enabled = false;
