@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public int monedas;
     [SerializeField]private int coins; // Sirve para que las variables privadas se puedan ver en el inspector
 
+
     private bool _isPaused = false;
 
     void Awake()
@@ -48,10 +49,21 @@ public class GameManager : MonoBehaviour
         CanvasManager.Instance.ChangeCanvasStatus(CanvasManager.Instance.pauseCanvas, CanvasManager.Instance.resumeButton);
     }
 
-    
+
 
     public bool IsPaused() // nos devuelve verdadero o falso depende de la booleana anterior
     {
         return _isPaused;
     }
+
+    public void Win()
+    {
+        
+    }
+    
+    public void GameOver()
+    {
+
+    }
+
 }

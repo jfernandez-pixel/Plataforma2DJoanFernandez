@@ -5,7 +5,9 @@ public class mimik : MonoBehaviour
     
     [SerializeField]private int _maxHealth = 20;
     private int _actualHealth;
+    //private Animator _animator;
 
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
