@@ -45,8 +45,10 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0; // Para el tiempo, lo congela
         }
 
-        CanvasManager.Instance.ChangeCanvasStatus();
+        CanvasManager.Instance.ChangeCanvasStatus(CanvasManager.Instance.pauseCanvas, CanvasManager.Instance.resumeButton);
     }
+
+    
 
     public bool IsPaused() // nos devuelve verdadero o falso depende de la booleana anterior
     {
