@@ -1,10 +1,12 @@
 using UnityEngine;
+//using UnityEngine.SceneManager;
 
 public class Coin : MonoBehaviour
 {
     private AudioSource _coinAduioSource;
     private SpriteRenderer _spriteRenderer;
     private CircleCollider2D _collider;
+    public int value;
     [SerializeField]private AudioClip _coinAudio;
    
     void Awake()
@@ -29,6 +31,7 @@ public class Coin : MonoBehaviour
             _spriteRenderer.enabled = false; // Desactiva el sprite render para que no se vea en pantalla
             _collider.enabled = false; // Desactiva el collider
             Destroy(gameObject, 0.5f); //0.5f es que tarde 0.5 segundos en destruir el objeto para que asi suene 
+            CoinCounter.instance.IncreaseCoins(value);
         }
     }
 }
