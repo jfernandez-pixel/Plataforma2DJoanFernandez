@@ -255,6 +255,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Main Menu Canvas '
       objectReference: {fileID: 0}
+    - target: {fileID: 8889967981087983852, guid: e83b5c845d6fb8d459cda94e440386fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11500000, guid: be92bde7cac50cb408f75aa6e2ee1672, type: 3}
+    - target: {fileID: 8889967981087983852, guid: e83b5c845d6fb8d459cda94e440386fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_name
+      objectReference: {fileID: 0}
+    - target: {fileID: 8889967981087983852, guid: e83b5c845d6fb8d459cda94e440386fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEditor.MonoScript, UnityEditor.CoreModule
+      objectReference: {fileID: 0}
+    - target: {fileID: 8889967981087983852, guid: e83b5c845d6fb8d459cda94e440386fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Scene_01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
