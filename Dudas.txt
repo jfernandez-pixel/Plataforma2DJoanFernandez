@@ -1,0 +1,2 @@
+Como hago que funcione la barra de vida si esta en el script 
+Si la manera que he utilizado para el contador de monedas esta bien 
