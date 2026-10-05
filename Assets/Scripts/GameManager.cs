@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance; // Sirve para dar acceso desde otro script de manera mas sencilla con GameManager.Instance.monedas
     public int monedas;
+    public int _playerHealth;
     
     [SerializeField]private int coins; // Sirve para que las variables privadas se puedan ver en el inspector
     [SerializeField] private int stars;
@@ -38,7 +39,7 @@ public class GameManager : MonoBehaviour
         coins += 1;
     }
 
-    public void AddStar()
+    public void AddStar() // Funcion para contar las estrellas y hacer que si las estrellas son igual al maximo de estrellas llamar a la victoria
     {
         stars +=1;
         _starText.text = stars.ToString() + "|" + _currentStars.ToString();

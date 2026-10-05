@@ -1,14 +1,21 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]private int _maxHealth = 100;
     [SerializeField]private int _actualHealth;
+    private Slider _playerHealthSlider;
     [SerializeField]private float _movementSpeed = 4.5f;
     [SerializeField]private float _JumpHeight = 2;
     
-    private Rigidbody2D _rigidbody2D;
+    
+    // Variables personaje
+    private Rigidbody2D _rigidbody2D; 
+    private Collider2D _collider2D;
+    private SpriteRenderer _spriteRenderer;
 
     //Creamos variable para las acciones del input system
     private InputAction _pauseAction; 
@@ -20,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private AudioSource _playerAudioSource;
 
 
+
     [SerializeField]private Transform _groundSensor;
     [SerializeField]private float _sensorSize = 1;
     [SerializeField]private LayerMask _groundLayer;
@@ -28,6 +36,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private float _hitBoxRadius = 1f;
     [SerializeField]private AudioClip _jumpSound;
     [SerializeField]private AudioClip _attackSound;
+    [SerializeField]private AudioClip _deathSound;
+    [SerializeField] private AudioClip _damageSound;
+    
 
     void Awake() //Hace lo mismo que el start pero se ejecuta antes
     {
@@ -35,6 +46,7 @@ public class PlayerController : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _playerAudioSource = GetComponent<AudioSource>(); 
+        _playerHealthSlider = GetComponent<Slider>();
 
 
         //Detectar botones del InputSystem
@@ -48,7 +60,10 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       //_acutalHealth = _maxHealth;
+       _actualHealth = _maxHealth;
+       GameManager.Instance._playerHealth = _actualHealth;
+       _playerHealthSlider.maxValue = _maxHealth;
+       _playerHealthSlider.value = _actualHealth;
     }
 
     // Update is called once per frame
@@ -94,6 +109,16 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool("IsJumping", !IsGrounded());
     }
 
+    /*public void TakeDamage(int damage)
+    {
+        _actualHealth -= damage;
+        PlaySFX(_damageSound);// sonido de muerte
+        GameManager.Instance._playerHealth = _actualHealth;
+        if (_actualHealth <= 0)
+        {
+            Death();// Crear canvas de muerte
+        }
+    }*/
     void FixedUpdate() //Se ejecuta el mismo numero de veces x segundo
     {
                 _rigidbody2D.linearVelocity = new Vector2(_moveInput.x * _movementSpeed, _rigidbody2D.linearVelocity.y);
@@ -124,7 +149,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void AddHealth(int healthAmount)
+    public void AddHealth(int healthAmount) // Funcion para añadir vida al personaje
     {
         _actualHealth += healthAmount;
 
@@ -134,6 +159,15 @@ public class PlayerController : MonoBehaviour
         }
         
     }
+
+    /*public void Death()
+    {
+        SceneLoader.Instance.GameOver("GameOver");
+        _collider2D.enabled = false;
+        _spriteRenderer.enabled = false;
+        Destroy(gameObject, 0.5f);
+        PlaySFX(_deathSound);
+    }*/
 
     bool IsGrounded() // El bool es para que la funcion devuelva algo (verdadero o falso)
     {

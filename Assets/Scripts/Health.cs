@@ -1,3 +1,5 @@
+using System;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -8,6 +10,7 @@ public class Health : MonoBehaviour
     private CircleCollider2D _collider;
     [SerializeField]private int _healthAmount = 10;
     [SerializeField]private AudioClip _healthAudio;
+    [SerializeField] private PlayerController _playerController;
     
     
     void Awake()
@@ -15,6 +18,11 @@ public class Health : MonoBehaviour
         _healthAduioSource = GetComponent<AudioSource>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _collider = GetComponent<CircleCollider2D>();
+    }
+
+    void Update()
+    {
+        
     }
 
     void PlaySFX()

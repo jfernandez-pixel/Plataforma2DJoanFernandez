@@ -36,6 +36,7 @@ public class SceneLoader : MonoBehaviour
     }
 
     IEnumerator LoadNewScene(string sceneName) // Sirve para poder pausar a mitad de del codigo y lgo se reanude, sirve para contadores
+
     {
         yield return null;
         _loadingCanvas.SetActive(true);
@@ -64,5 +65,10 @@ public class SceneLoader : MonoBehaviour
 
         Time.timeScale = 1;
         _loadingCanvas.SetActive(false);
+    }
+
+    public void GameOVer(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }

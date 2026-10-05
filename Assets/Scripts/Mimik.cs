@@ -1,24 +1,34 @@
+using TMPro;
 using UnityEngine;
 
 public class mimik : MonoBehaviour
 {
     
     [SerializeField]private int _maxHealth = 20;
-    private int _actualHealth;
-    //private Animator _animator;
-
+    [SerializeField]private int _actualHealth;
+    private Animator _animator;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
+    
     void Start()
     {
         _actualHealth = _maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    /*void OisionEnter2D(Collision2D collision)
     {
-        
-    }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerController _playerDamage = collision.gameObject.GetComponent<PlayerController>();
+            _animator.SetTrigger("IsAttacking");
+            _playerDamage.TakeDamage(20);
+        }     
+    }*/
+
 
     public void TakeDamage(int damage) //Funcion para restar vida
     {
