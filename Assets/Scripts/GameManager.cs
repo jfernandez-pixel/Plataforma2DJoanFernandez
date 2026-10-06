@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     
     [SerializeField]private int coins; // Sirve para que las variables privadas se puedan ver en el inspector
     [SerializeField] private int stars;
-    [SerializeField] Text _starText; // Texto esrellas
     [SerializeField] private int _currentStars; // Cantidad de estrellas
     [SerializeField] private int _maxStars; // Maximo de estrellas para la victoria
 
@@ -42,7 +41,6 @@ public class GameManager : MonoBehaviour
     public void AddStar() // Funcion para contar las estrellas y hacer que si las estrellas son igual al maximo de estrellas llamar a la victoria
     {
         stars +=1;
-        _starText.text = stars.ToString() + "|" + _currentStars.ToString();
         if (stars == _maxStars)
         {
             Win();
