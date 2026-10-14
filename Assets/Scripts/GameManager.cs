@@ -45,7 +45,6 @@ public class GameManager : MonoBehaviour
     public void AddStar() // Funcion para contar las estrellas y hacer que si las estrellas son igual al maximo de estrellas llamar a la victoria
     {
         stars +=1;
-        _starText.text = stars.ToString() + "|" + _currentStars.ToString();
         if (stars == _maxStars)
         {
             Win();
