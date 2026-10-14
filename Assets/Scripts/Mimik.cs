@@ -19,7 +19,7 @@ public class mimik : MonoBehaviour
         _actualHealth = _maxHealth;
     }
 
-    /*void OisionEnter2D(Collision2D collision)
+    void OisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -27,7 +27,7 @@ public class mimik : MonoBehaviour
             _animator.SetTrigger("IsAttacking");
             _playerDamage.TakeDamage(20);
         }     
-    }*/
+    }
 
 
     public void TakeDamage(int damage) //Funcion para restar vida

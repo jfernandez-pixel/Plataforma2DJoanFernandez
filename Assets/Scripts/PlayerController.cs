@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool("IsJumping", !IsGrounded());
     }
 
-    /*public void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         _actualHealth -= damage;
         PlaySFX(_damageSound);// sonido de muerte
@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
         {
             Death();// Crear canvas de muerte
         }
-    }*/
+    }
     void FixedUpdate() //Se ejecuta el mismo numero de veces x segundo
     {
                 _rigidbody2D.linearVelocity = new Vector2(_moveInput.x * _movementSpeed, _rigidbody2D.linearVelocity.y);
@@ -160,14 +160,14 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    /*public void Death()
+    public void Death()
     {
         SceneLoader.Instance.GameOver("GameOver");
         _collider2D.enabled = false;
         _spriteRenderer.enabled = false;
         Destroy(gameObject, 0.5f);
         PlaySFX(_deathSound);
-    }*/
+    }
 
     bool IsGrounded() // El bool es para que la funcion devuelva algo (verdadero o falso)
     {

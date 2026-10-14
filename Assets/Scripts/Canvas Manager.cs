@@ -4,8 +4,6 @@ using UnityEngine.UI;
 public class CanvasManager : MonoBehaviour
 {
     public static CanvasManager Instance;
-
-
     public GameObject pauseCanvas;
     public Button resumeButton;
 

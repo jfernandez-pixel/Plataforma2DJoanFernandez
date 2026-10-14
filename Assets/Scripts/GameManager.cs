@@ -1,15 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance; // Sirve para dar acceso desde otro script de manera mas sencilla con GameManager.Instance.monedas
-    public int monedas;
     public int _playerHealth;
     
+    [SerializeField]private GameObject _gameCanvas;
     [SerializeField]private int coins; // Sirve para que las variables privadas se puedan ver en el inspector
     [SerializeField] private int stars;
     [SerializeField] Text _starText; // Texto esrellas
+    [SerializeField] Text _coinText; //Texto monedas
     [SerializeField] private int _currentStars; // Cantidad de estrellas
     [SerializeField] private int _maxStars; // Maximo de estrellas para la victoria
 
@@ -37,6 +39,7 @@ public class GameManager : MonoBehaviour
     public void AddCoins() // Funcion para llamar a las monedas
     {
         coins += 1;
+        _coinText = "x" + coins.ToString();
     }
 
     public void AddStar() // Funcion para contar las estrellas y hacer que si las estrellas son igual al maximo de estrellas llamar a la victoria
@@ -69,7 +72,7 @@ public class GameManager : MonoBehaviour
 
 
 
-    public bool IsPaused() // nos devuelve verdadero o falso depende de la booleana anterior
+    public void IsPaused() // nos devuelve verdadero o falso depende de la booleana anterior
     {
         return _isPaused;
     }
