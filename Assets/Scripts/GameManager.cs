@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 
 public class GameManager : MonoBehaviour
@@ -39,12 +40,13 @@ public class GameManager : MonoBehaviour
     public void AddCoins() // Funcion para llamar a las monedas
     {
         coins += 1;
-        _coinText = "x" + coins.ToString();
+        _coinText.text = "x" + coins.ToString();
     }
 
     public void AddStar() // Funcion para contar las estrellas y hacer que si las estrellas son igual al maximo de estrellas llamar a la victoria
     {
         stars +=1;
+        _starText.text = " | 10" + _currentStars.ToString();
         if (stars == _maxStars)
         {
             Win();
@@ -71,7 +73,7 @@ public class GameManager : MonoBehaviour
 
 
 
-    public void IsPaused() // nos devuelve verdadero o falso depende de la booleana anterior
+    public bool IsPaused() // nos devuelve verdadero o falso depende de la booleana anterior
     {
         return _isPaused;
     }
@@ -81,9 +83,10 @@ public class GameManager : MonoBehaviour
         //CanvasManager.Instance.ChangeCanvasStatus(CanvasManager.Instance.victoryCanvas, CanvasManager.Instance.retryButton);
     }
     
-    public void GameOver()
+    public IEnumerator GameOver()
     {
-
+        yield return new WaitForSeconds(3f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("gameOver");
     }
 
 }

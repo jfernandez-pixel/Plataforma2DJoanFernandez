@@ -13,6 +13,7 @@ public class Star : MonoBehaviour
         _starAduioSource = GetComponent<AudioSource>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _collider = GetComponent<CircleCollider2D>();
+        _starAduioSource = GetComponent<AudioSource>();
     }
 
     void PlaySFX()

@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 160248722}
   m_Layer: 0
   m_Name: Star
-  m_TagString: Untagged
+  m_TagString: Coins
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1087,7 +1087,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 297e0cf349a5a8f449cfc5ce09d2ba29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
-  value: 1
   _coinAudio: {fileID: 8300000, guid: 9cd165f0d70865f40a3c706850a3be03, type: 3}
 --- !u!58 &895854603
 CircleCollider2D:
@@ -15126,8 +15125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18f857dac632c943a58cf283870f5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoinCounter
-  coinText: {fileID: 967838216}
-  currentCoins: 0
+  starText: {fileID: 0}
+  _currentStars: 0
 --- !u!114 &2002076981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15140,6 +15139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b13cbce7fbed19418fac5d52e7b8aae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StarCounter
+  starText: {fileID: 0}
+  _currentStars: 0
 --- !u!1 &2036991856
 GameObject:
   m_ObjectHideFlags: 0
@@ -15262,11 +15263,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c874aac3fba6c418ba014e626d1d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManagment
-  monedas: 0
   _playerHealth: 0
+  _gameCanvas: {fileID: 0}
   coins: 0
   stars: 0
   _starText: {fileID: 0}
+  _coinText: {fileID: 0}
   _currentStars: 0
   _maxStars: 0
 --- !u!1001 &2916973198534456674
