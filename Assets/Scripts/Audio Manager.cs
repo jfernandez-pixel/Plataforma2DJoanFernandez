@@ -11,12 +11,14 @@ public class AudioManager : MonoBehaviour
         if(Instance != null && Instance != this) // Segundo paso, si tienes dos game manager en la escena se destruira --Comprueba si hay alguien que se ha asingado esto
         {
             Destroy (gameObject);
+            return;
         }
         else 
         {
             Instance = this;
         }
 
+        DontDestroyOnLoad(gameObject); //Evita que se destruya al cambiar de escena
         _audioSource = GetComponent<AudioSource>(); 
     }
 

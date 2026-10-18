@@ -2,12 +2,16 @@ using UnityEngine;
 
 public class DeathZone : MonoBehaviour
 {
-    void OEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"));
+        if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerController variablemuertepersonaje = collision.gameObject.GetComponent<PlayerController>();
-            variablemuertepersonaje.TakeDamage(100);
+            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+            
+            if (player != null)
+            {
+                player.TakeDamage(100);
+            }
         }
     }
 }

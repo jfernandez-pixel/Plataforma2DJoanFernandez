@@ -6,7 +6,10 @@ public class mimik : MonoBehaviour
     
     [SerializeField]private int _maxHealth = 20;
     [SerializeField]private int _actualHealth;
+    [SerializeField]private float _detectionRange = 2.5f;// Rango de deteccion para la animacion
+    [SerializeField]private int _attackDamage = 10; //Daño de ataque
     private Animator _animator;
+    private Transform _playerTransform; //Ref posicion del player
     
 
     void Awake()
@@ -17,15 +20,41 @@ public class mimik : MonoBehaviour
     void Start()
     {
         _actualHealth = _maxHealth;
+
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+        {
+            _playerTransform = playerObj.transform;
+        }
     }
 
-    void OisionEnter2D(Collision2D collision)
+    void Update()
+    {
+        if (_playerTransform == null) return; //Si no esta el jugador en la escena, no hace nada 
+        // Calculamos la distancia constante entre el Mimik y el jugador
+        float distanceToPlayer = Vector2.Distance(transform.position, _playerTransform.position);
+        if (distanceToPlayer <= _detectionRange)
+        {
+            _animator.SetBool("IsAttacking", true);// Activa un bool en el animator
+        }
+        else
+        {
+            _animator.SetBool("IsAttacking", false);// Desactiva el bool en el animator
+        }
+
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerController _playerDamage = collision.gameObject.GetComponent<PlayerController>();
+            
+            if(_playerDamage != null)
+            {
             _animator.SetTrigger("IsAttacking");
-            _playerDamage.TakeDamage(20);
+            _playerDamage.TakeDamage(_attackDamage);
+            }
         }     
     }
 

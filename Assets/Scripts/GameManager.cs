@@ -37,13 +37,13 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.StartSoundtrack();
     }
 
-    public void AddCoins() // Funcion para llamar a las monedas
+    /*public void AddCoins() // Funcion para llamar a las monedas
     {
         coins += 1;
         _coinText.text = "x" + coins.ToString();
-    }
+    }*/
 
-    public void AddStar() // Funcion para contar las estrellas y hacer que si las estrellas son igual al maximo de estrellas llamar a la victoria
+    /*public void AddStar() // Funcion para contar las estrellas y hacer que si las estrellas son igual al maximo de estrellas llamar a la victoria
     {
         stars +=1;
         _starText.text = " | 10" + _currentStars.ToString();
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
         {
             Win();
         }
-    }
+    }*/
 
     public void Pause() // Para controlar el cuadno parar el tiempo y asi lgo poder poner el menu de pausa
     {

@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]private int _maxHealth = 100;
     [SerializeField]private int _actualHealth;
-    private Slider _playerHealthSlider;
+    [SerializeField]private Slider _playerHealthSlider;
     [SerializeField]private float _movementSpeed = 4.5f;
     [SerializeField]private float _JumpHeight = 2;
     
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private Transform _groundSensor;
     [SerializeField]private float _sensorSize = 1;
     [SerializeField]private LayerMask _groundLayer;
-    [SerializeField]private int _attackDamage = 7;
+    [SerializeField]private int _attackDamage = 5;
     [SerializeField]private Transform _attackHitbox;
     [SerializeField]private float _hitBoxRadius = 1f;
     [SerializeField]private AudioClip _jumpSound;
@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _playerAudioSource = GetComponent<AudioSource>(); 
-        _playerHealthSlider = GetComponent<Slider>();
+        
 
 
         //Detectar botones del InputSystem
@@ -62,8 +62,11 @@ public class PlayerController : MonoBehaviour
     {
        _actualHealth = _maxHealth;
        GameManager.Instance._playerHealth = _actualHealth;
-       _playerHealthSlider.maxValue = _maxHealth;
-       _playerHealthSlider.value = _actualHealth;
+       if (_playerHealthSlider != null)
+       {
+            _playerHealthSlider.maxValue = _maxHealth;
+            _playerHealthSlider.value = _actualHealth;
+       }
     }
 
     // Update is called once per frame
@@ -111,13 +114,17 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        _actualHealth -= damage;
-        PlaySFX(_damageSound);// sonido de muerte
-        GameManager.Instance._playerHealth = _actualHealth;
-        if (_actualHealth <= 0)
+       _actualHealth -= damage;
+       PlaySFX(_damageSound);
+       GameManager.Instance._playerHealth = _actualHealth;
+        if (_playerHealthSlider != null)//Actualizacion barra de vida
         {
-            Death();// Crear canvas de muerte
+            _playerHealthSlider.value = _actualHealth;
         }
+        if(_actualHealth <= 0)
+        {
+            Death();
+        }       
     }
     void FixedUpdate() //Se ejecuta el mismo numero de veces x segundo
     {
@@ -157,7 +164,10 @@ public class PlayerController : MonoBehaviour
         {
             _actualHealth = _maxHealth;
         }
-        
+        if (_playerHealthSlider != null)
+        {
+            _playerHealthSlider.value = _actualHealth;
+        }
     }
 
     public void Death()
