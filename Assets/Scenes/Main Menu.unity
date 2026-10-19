@@ -171,6 +171,54 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4217807949086285574, guid: e83b5c845d6fb8d459cda94e440386fc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217807949086285574, guid: e83b5c845d6fb8d459cda94e440386fc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217807949086285574, guid: e83b5c845d6fb8d459cda94e440386fc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217807949086285574, guid: e83b5c845d6fb8d459cda94e440386fc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332409619684713742, guid: e83b5c845d6fb8d459cda94e440386fc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332409619684713742, guid: e83b5c845d6fb8d459cda94e440386fc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332409619684713742, guid: e83b5c845d6fb8d459cda94e440386fc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332409619684713742, guid: e83b5c845d6fb8d459cda94e440386fc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7408031951048046768, guid: e83b5c845d6fb8d459cda94e440386fc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7408031951048046768, guid: e83b5c845d6fb8d459cda94e440386fc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7408031951048046768, guid: e83b5c845d6fb8d459cda94e440386fc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7408031951048046768, guid: e83b5c845d6fb8d459cda94e440386fc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7852038003431743485, guid: e83b5c845d6fb8d459cda94e440386fc, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -258,18 +306,18 @@ PrefabInstance:
     - target: {fileID: 8889967981087983852, guid: e83b5c845d6fb8d459cda94e440386fc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 11500000, guid: be92bde7cac50cb408f75aa6e2ee1672, type: 3}
+      objectReference: {fileID: 1493605358}
     - target: {fileID: 8889967981087983852, guid: e83b5c845d6fb8d459cda94e440386fc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_name
+      value: ChangeScene
       objectReference: {fileID: 0}
     - target: {fileID: 8889967981087983852, guid: e83b5c845d6fb8d459cda94e440386fc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEditor.MonoScript, UnityEditor.CoreModule
+      value: SceneLoader, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8889967981087983852, guid: e83b5c845d6fb8d459cda94e440386fc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Scene_01
+      value: Game
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -368,6 +416,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1493605358 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8874327856091684425, guid: 5018049ed34311c4d80974751815f80d, type: 3}
+  m_PrefabInstance: {fileID: 5399519495899877042}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d737768b0ece2408653f6af88343f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
 --- !u!1 &2107932367
 GameObject:
   m_ObjectHideFlags: 0
