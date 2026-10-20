@@ -34,11 +34,11 @@ public class StarCounter : MonoBehaviour
         }
     }
 
-    /*public void Win()
+    public void Win()
     {
         if (SceneLoader.Instance != null)
         {
-            SceneLoader.Instance.ChangeScene("Win")
+            SceneLoader.Instance.ChangeScene("Win");
         }
-    }*/
+    }
 }

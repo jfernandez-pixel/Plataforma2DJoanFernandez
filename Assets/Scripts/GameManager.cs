@@ -78,9 +78,10 @@ public class GameManager : MonoBehaviour
         return _isPaused;
     }
 
-    public void Win()
+    public IEnumerator Win()
     {
-        //CanvasManager.Instance.ChangeCanvasStatus(CanvasManager.Instance.victoryCanvas, CanvasManager.Instance.retryButton);
+        yield return new WaitForSeconds(3f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Win");
     }
     
     public IEnumerator GameOver()
