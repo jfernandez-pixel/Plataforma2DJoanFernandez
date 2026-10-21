@@ -35,13 +35,9 @@ public class mimik : MonoBehaviour
         float distanceToPlayer = Vector2.Distance(transform.position, _playerTransform.position);
         if (distanceToPlayer <= _detectionRange)
         {
-            _animator.SetBool("IsAttacking", true);// Activa un bool en el animator
+            _animator.SetTrigger("IsAttacking");// Activa un bool en el animator
         }
-        else
-        {
-            _animator.SetBool("IsAttacking", false);// Desactiva el bool en el animator
-        }
-
+        
     }
 
     void OnCollisionEnter2D(Collision2D collision)
