@@ -44,7 +44,7 @@ public class Repaso : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 180, 0);
             _animator.SetBool("IsRunning", true);//Animacion
         }
-        else()
+        else()//Animacion
         {
             _animator.SetBool("IsRunning", false);//Animacion
         }
